@@ -199,63 +199,143 @@ st.set_page_config(
 
 st.markdown("""
     <p style="font-size: 12px; text-align: center;">
-        Created by: <a href="https://www.linkedin.com/in/luca-girlando-775463302/" target="_blank">Luca Girlando</a><br>
-        <span style="color: red;">
-            Please use the light theme, otherwise with the dark theme some parts might not be displayed correctly<br>
-            Proszę używać jasnego motywu, ponieważ w przypadku ciemnego motywu niektóre elementy mogą nie być wyświetlane poprawnie
-        </span>
+        Created by: <a href="https://www.linkedin.com/in/luca-girlando-775463302/" target="_blank">Luca Girlando</a>
     </p>
 """, unsafe_allow_html=True)
 
-# Custom CSS for professional styling
+# Custom CSS for professional styling with dark theme support
 st.markdown(f"""
 <style>
-    .main {{
-        background-color: #f8f9fa;
+:root {{
+    --primary-dark: #1a2639;
+    --primary-medium: #3e4a61;
+    --primary-light: #d9dad7;
+    --accent-blue: #4a6fa5;
+    --accent-teal: #166088;
+    --call-green: #2e8b57;
+    --put-red: #c04e4e;
+    --highlight: #f0f4f8;
+    --text-light: #333333;
+    --text-dark: #f0f2f6;
+    --bg-light: #f8f9fa;
+    --bg-dark: #0e1117;
+    --card-light: white;
+    --card-dark: #1a2639;
+    --border-light: rgba(0,0,0,0.05);
+    --border-dark: #3e4a61;
+}}
+
+* {{
+    font-family: 'Lato', 'Segoe UI', Roboto, sans-serif;
+}}
+
+.main {{
+    background-color: var(--bg-light);
+}}
+
+.stSidebar {{
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-medium)) !important;
+}}
+
+.stSidebar .sidebar-content {{
+    color: white !important;
+}}
+
+h1, h2, h3, h4 {{
+    color: var(--primary-dark);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    border-bottom: 1px solid #e1e4e8;
+    padding-bottom: 0.3em;
+}}
+
+.stMetric {{
+    background-color: var(--card-light);
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-light);
+}}
+
+.stButton>button {{
+    background-color: var(--accent-blue);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    padding: 8px 16px;
+}}
+
+.language-button {{
+    background-color: var(--put-red) !important;
+    color: white !important;
+    font-weight: bold !important;
+    margin-bottom: 20px !important;
+    width: 100% !important;
+}}
+
+.impact-box {{
+    background-color: var(--card-light);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-light);
+}}
+
+.stDataFrame {{
+    background-color: var(--card-light) !important;
+    border: 1px solid var(--border-light) !important;
+}}
+
+.stAlert {{
+    background-color: var(--card-light) !important;
+}}
+
+.stExpander {{
+    background-color: var(--card-light) !important;
+    border: 1px solid var(--border-light) !important;
+}}
+
+/* Dark theme overrides */
+@media (prefers-color-scheme: dark) {{
+    :root {{
+        --primary-dark: #f0f2f6;
+        --primary-medium: #a1a9b8;
+        --bg-light: #0e1117;
+        --card-light: #1a2639;
+        --text-light: #f0f2f6;
+        --border-light: #3e4a61;
     }}
-    .sidebar .sidebar-content {{
-        background-color: #2c3e50;
-        color: white;
+    
+    h1, h2, h3, h4 {{
+        color: var(--primary-dark) !important;
+        border-bottom-color: var(--border-dark) !important;
     }}
-    h1 {{
-        color: #2c3e50;
-        font-family: 'Helvetica Neue', sans-serif;
-        font-weight: 300;
-        border-bottom: 1px solid #e1e4e8;
-        padding-bottom: 0.3em;
-    }}
-    h2 {{
-        color: #2c3e50;
-        font-family: 'Helvetica Neue', sans-serif;
-        font-weight: 400;
-    }}
+    
     .stMetric {{
-        background-color: white;
-        border-radius: 5px;
-        padding: 15px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        background-color: var(--card-dark) !important;
+        border-color: var(--border-dark) !important;
     }}
-    .stButton>button {{
-        background-color: #3498db;
-        color: white;
-        border-radius: 4px;
-        border: none;
-        padding: 8px 16px;
-    }}
-    .language-button {{
-        background-color: #e74c3c !important;
-        color: white !important;
-        font-weight: bold !important;
-        margin-bottom: 20px !important;
-        width: 100% !important;
-    }}
+    
     .impact-box {{
-        background-color: white;
-        border-radius: 5px;
-        padding: 15px;
-        margin-bottom: 15px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        background-color: var(--card-dark) !important;
+        border-color: var(--border-dark) !important;
     }}
+    
+    .stDataFrame {{
+        background-color: var(--card-dark) !important;
+        border-color: var(--border-dark) !important;
+    }}
+    
+    .stAlert {{
+        background-color: var(--card-dark) !important;
+    }}
+    
+    .stExpander {{
+        background-color: var(--card-dark) !important;
+        border-color: var(--border-dark) !important;
+    }}
+}}
 </style>
 """, unsafe_allow_html=True)
 
@@ -613,15 +693,16 @@ st.sidebar.markdown(f"""
 # Add missing error translations
 translations["en"].update({
     "data_error": "Data retrieval error",
-    "historical_error": "Historical data error"
+    "historical_error": "Historical data error",
+    "forecast_error": "Forecast error",
+    "last": "Last"
 })
 translations["pl"].update({
     "data_error": "Błąd pobierania danych",
-    "historical_error": "Błąd danych historycznych"
+    "historical_error": "Błąd danych historycznych",
+    "forecast_error": "Błąd prognozy",
+    "last": "Ostatnie"
 })
-
-translations["en"]["forecast_error"] = "Forecast error"
-translations["pl"]["forecast_error"] = "Błąd prognozy"
 
 # Page routing
 if page == t("nav_dashboard"):
