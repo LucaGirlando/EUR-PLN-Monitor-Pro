@@ -208,54 +208,165 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Custom CSS for professional styling
-st.markdown(f"""
+st.markdown("""
 <style>
-    .main {{
-        background-color: #f8f9fa;
-    }}
-    .sidebar .sidebar-content {{
-        background-color: #2c3e50;
-        color: white;
-    }}
-    h1 {{
-        color: #2c3e50;
-        font-family: 'Helvetica Neue', sans-serif;
-        font-weight: 300;
-        border-bottom: 1px solid #e1e4e8;
-        padding-bottom: 0.3em;
-    }}
-    h2 {{
-        color: #2c3e50;
-        font-family: 'Helvetica Neue', sans-serif;
-        font-weight: 400;
-    }}
-    .stMetric {{
-        background-color: white;
-        border-radius: 5px;
-        padding: 15px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }}
-    .stButton>button {{
-        background-color: #3498db;
-        color: white;
-        border-radius: 4px;
-        border: none;
-        padding: 8px 16px;
-    }}
-    .language-button {{
-        background-color: #e74c3c !important;
+/* ===== CORE VARIABLES ===== */
+:root {
+    /* Light Theme (originale) */
+    --light-primary: #1abc9c;
+    --light-secondary: #3498db;
+    --light-background: #FFFFFF;
+    --light-text: #111111;
+    --light-card: #FFFFFF;
+    --light-border: #E1E3EB;
+    --light-sidebar: #2c3e50;
+    
+    /* Dark Theme (modificato) */
+    --dark-primary: #4BFFFC;
+    --dark-background: #000000;
+    --dark-text: #FFFFFF;
+    --dark-card: #1A2639;
+    --dark-border: #2A3A4D;
+    --dark-sidebar: #1A2639;
+    
+    /* Default Light Theme */
+    --primary: var(--light-primary);
+    --secondary: var(--light-secondary);
+    --background: var(--light-background);
+    --text: var(--light-text);
+    --card: var(--light-card);
+    --border: var(--light-border);
+    --sidebar: var(--light-sidebar);
+}
+
+/* ===== DARK THEME OVERRIDE ===== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: var(--dark-primary);
+        --secondary: var(--dark-secondary);
+        --background: var(--dark-background);
+        --text: var(--dark-text);
+        --card: var(--dark-card);
+        --border: var(--dark-border);
+        --sidebar: var(--dark-sidebar);
+    }
+}
+
+/* ===== BASE STYLES ===== */
+* {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+h2, h3, h4 {
+    color: var(--text);
+}
+
+/* ===== SIDEBAR ===== */
+.stSidebar {
+    background: var(--sidebar) !important;
+}
+
+.stSidebar .sidebar-content {
+    color: white !important;
+}
+
+.stSidebar label {
+    color: white !important;
+    font-weight: 600;
+}
+
+/* ===== CARDS & CONTAINERS ===== */
+.metric-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.plot-container, 
+div[data-testid="stExpander"] {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1em;
+}
+
+/* ===== METRICS ===== */
+.metric-value {
+    font-size: 1.8em;
+    font-weight: bold;
+    font-family: monospace;
+    color: var(--text);
+}
+
+.metric-label {
+    font-size: 0.95em;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+/* ===== HEATMAP INTERPRETATION BOX ===== */
+.interpretation-box {
+    background: var(--card) !important;
+    border-left: 4px solid var(--primary) !important;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    color: white !important;
+}
+
+.interpretation-box,
+.interpretation-box p,
+.interpretation-box li,
+.interpretation-box ul {
+    color: white !important;
+}
+
+/* ===== TABLES ===== */
+.stDataFrame {
+    border: 1px solid var(--border) !important;
+    border-radius: 10px !important;
+}
+
+/* ===== DARK THEME ENHANCEMENTS ===== */
+@media (prefers-color-scheme: dark) {
+    /* Miglioramenti aggiuntivi per dark theme */
+    .stTextInput input,
+    .stNumberInput input,
+    .stSelectbox select {
+        background-color: #121826 !important;
         color: white !important;
-        font-weight: bold !important;
-        margin-bottom: 20px !important;
-        width: 100% !important;
-    }}
-    .impact-box {{
-        background-color: white;
-        border-radius: 5px;
-        padding: 15px;
-        margin-bottom: 15px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }}
+        border-color: var(--border) !important;
+    }
+    
+    .stSlider .st-c7 {
+        background-color: var(--primary) !important;
+    }
+    
+    /* Heatmap text */
+    .heatmap-annotation {
+        fill: white !important;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
 
