@@ -258,40 +258,38 @@ st.markdown(f"""
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }}
 
-    /* Dark Theme Overrides */
+    /* Dark Theme Overrides - SOLO SFONDO NERO E TESTO BIANCO */
     @media (prefers-color-scheme: dark) {{
         .main {{
-            background-color: #121826;
-        }}
-        .sidebar .sidebar-content {{
-            background-color: #1A2639; /* Blu navy più scuro */
-            color: #FFFFFF;
-        }}
-        h1, h2 {{
-            color: #FFFFFF;
-            border-bottom-color: #2A3042;
-        }}
-        .stMetric {{
-            background-color: #1E293B;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            color: #FFFFFF;
-        }}
-        .stButton>button {{
-            background-color: #4BFFFC; /* Teal accent */
-            color: #000000;
-        }}
-        .language-button {{
-            background-color: #FF6B6B !important; /* Rosso più chiaro */
-        }}
-        .impact-box {{
-            background-color: #1E293B;
-            color: #FFFFFF;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            background-color: #000000 !important; /* Nero puro */
         }}
         
-        /* Forza testo bianco in tutti gli elementi */
-        body, p, li, td, th, div {{
+        /* Tutto il testo bianco */
+        body, h1, h2, h3, h4, h5, h6, p, li, td, th, div, .stMetric, .impact-box {{
             color: #FFFFFF !important;
+        }}
+        
+        /* Sidebar invariata */
+        .sidebar .sidebar-content {{
+            background-color: #2c3e50 !important;
+            color: white !important;
+        }}
+        
+        /* Metriche e box con sfondo nero */
+        .stMetric, .impact-box {{
+            background-color: #000000 !important;
+            border: 1px solid #333333 !important;
+        }}
+        
+        /* Bottoni invariati */
+        .stButton>button {{
+            background-color: #3498db !important;
+            color: white !important;
+        }}
+        
+        .language-button {{
+            background-color: #e74c3c !important;
+            color: white !important;
         }}
     }}
 </style>
