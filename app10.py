@@ -393,9 +393,6 @@ def dashboard_page():
         st.metric(label=t("current_rate"), value=f"{current_rate:.4f}", 
                 delta="0.00% " + ("from yesterday" if st.session_state.language == 'en' else "od wczoraj"))
         st.caption(f"{t('last_updated')}: {datetime.now().strftime('%H:%M:%S')}")
-        
-        if st.button(t("refresh"), key="refresh_main"):
-            st.experimental_rerun()
 
     with col2:
         st.markdown(f"### {t('quick_conversion')}")
