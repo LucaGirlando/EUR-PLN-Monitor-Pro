@@ -210,6 +210,7 @@ st.markdown("""
 # Custom CSS for professional styling
 st.markdown(f"""
 <style>
+    /* Light Theme (originale - invariato) */
     .main {{
         background-color: #f8f9fa;
     }}
@@ -255,6 +256,43 @@ st.markdown(f"""
         padding: 15px;
         margin-bottom: 15px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }}
+
+    /* Dark Theme Overrides */
+    @media (prefers-color-scheme: dark) {{
+        .main {{
+            background-color: #121826;
+        }}
+        .sidebar .sidebar-content {{
+            background-color: #1A2639; /* Blu navy più scuro */
+            color: #FFFFFF;
+        }}
+        h1, h2 {{
+            color: #FFFFFF;
+            border-bottom-color: #2A3042;
+        }}
+        .stMetric {{
+            background-color: #1E293B;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: #FFFFFF;
+        }}
+        .stButton>button {{
+            background-color: #4BFFFC; /* Teal accent */
+            color: #000000;
+        }}
+        .language-button {{
+            background-color: #FF6B6B !important; /* Rosso più chiaro */
+        }}
+        .impact-box {{
+            background-color: #1E293B;
+            color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }}
+        
+        /* Forza testo bianco in tutti gli elementi */
+        body, p, li, td, th, div {{
+            color: #FFFFFF !important;
+        }}
     }}
 </style>
 """, unsafe_allow_html=True)
